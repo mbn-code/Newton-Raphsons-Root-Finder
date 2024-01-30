@@ -34,14 +34,14 @@ impl event::EventHandler<ggez::GameError> for MainState {
         let rect_length = 100.0;
         let rect_height = 100.0;
 
-        let rect = graphics::Mesh::new_rectangle(
+        let rect: graphics::Mesh = graphics::Mesh::new_rectangle(
             ctx,
             graphics::DrawMode::fill(),
             graphics::Rect::new(
                 *SCREEN_WIDTH / 2.0 - (rect_length / 2.0),
-                *SCREEN_HEIGHT / 2.0 - (rect_length / 2.0),
-                rect_height,
+                *SCREEN_HEIGHT / 2.0 - (rect_height / 2.0),
                 rect_length,
+                rect_height,
             ),
             graphics::Color::from([0.0, 0.0, 0.0, 1.0]),
         )?;
