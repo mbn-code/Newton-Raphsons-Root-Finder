@@ -1,6 +1,6 @@
-use ggez::{event, graphics, Context, GameResult, conf};
+use ggez::{conf, event, graphics, Context, GameResult};
 use lazy_static::lazy_static;
-
+use ggez::input::keyboard::KeyCode;
 
 // declaration and initialization of constant global variables
 lazy_static! {
@@ -11,18 +11,38 @@ lazy_static! {
 
 struct MainState {
     pos_x: f32,
+    pos_y: f32,
 }
 
 impl MainState {
     fn new() -> GameResult<MainState> {
-        let s = MainState { pos_x: 0.0 };
+        let s = MainState { pos_x: 0.0 , pos_y: 0.0};
         Ok(s)
     }
 }
 
 impl event::EventHandler<ggez::GameError> for MainState {
-    fn update(&mut self, _ctx: &mut Context) -> GameResult {
-        self.pos_x = (self.pos_x + 1.0) % 800.0;
+    fn update(&mut self, ctx: &mut Context) -> GameResult {
+
+        if ctx.keyboard.is_key_pressed(KeyCode::Right) {
+            // move the rectangle to the right
+            self.pos_x += 10.0;
+        }
+        if ctx.keyboard.is_key_pressed(KeyCode::Left) {
+            // move the rectangle to the left
+            self.pos_x -= 10.0;
+
+        }
+        if ctx.keyboard.is_key_pressed(KeyCode::Up) {
+            // move the rectangle to the up
+            self.pos_y -= 10.0;
+
+        }
+        if ctx.keyboard.is_key_pressed(KeyCode::Down) {
+            // move the rectangle to the down
+            self.pos_y += 10.0;
+        }
+
         Ok(())
     }
 
@@ -38,8 +58,8 @@ impl event::EventHandler<ggez::GameError> for MainState {
             ctx,
             graphics::DrawMode::fill(),
             graphics::Rect::new(
-                *SCREEN_WIDTH / 2.0 - (rect_length / 2.0),
-                *SCREEN_HEIGHT / 2.0 - (rect_height / 2.0),
+                self.pos_x,
+                self.pos_y,
                 rect_length,
                 rect_height,
             ),
