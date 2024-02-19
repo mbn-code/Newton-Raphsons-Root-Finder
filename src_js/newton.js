@@ -1,3 +1,29 @@
+/*
+Den angivne JavaScript-kode definerer fire funktioner: hasRoot, generateGraph, f og df. Disse funktioner bruges 
+til at generere en graf for en polynomisk funktion og kontrollere, om den har en rod inden for et bestemt interval.
+
+Funktionen f(x) bruges til at evaluere polynomiet ved en given x-værdi. Den bruger reduce-metoden til at iterere 
+over coefficients-arrayet, som indeholder koefficienterne for polynomiet. For hver koefficient a ved indeks i 
+tilføjer den a * pow(x, i) til summen. pow-funktionen opløfter x til i's potens, hvilket effektivt beregner hver 
+term af polynomiet.
+
+Funktionen df(x) er lignende f(x), men den beregner den afledede af polynomiet i stedet. Den springer over den 
+første koefficient (fordi den afledede af en konstant er nul) og multiplicerer hver term med i + 1 for at 
+anvende potensreglen for differentiation.
+
+Funktionen hasRoot kontrollerer, om polynomiet har en rod (en x-værdi, for hvilken f(x) er nul) inden for 
+intervallet fra -2 til 2. Det gør den ved at iterere over dette interval i trin på 0,01, beregne f(x) for hver 
+x og kontrollere, om den absolutte værdi af f(x) er mindre end en bestemt precision. Hvis en sådan x findes, 
+returnerer den true. Hvis der ikke findes en rod i intervallet, returnerer den false.
+
+Funktionen generateGraph genererer et nyt sæt koefficienter for polynomiet ved at oprette et array af tre 
+tilfældige tal mellem -1 og 1. Derefter kontrollerer den, om det nye polynomium har en rod ved hjælp af 
+hasRoot-funktionen. Hvis polynomiet ikke har en rod, kalder den rekursivt sig selv for at generere et nyt sæt 
+koefficienter. Dette sikrer, at funktionen kun vil returnere, når den har genereret et polynomium, der har en 
+rod inden for det specificerede interval.
+*/
+
+
 /**
  * newton.js
  * 
@@ -24,7 +50,7 @@
  * - df(x): Evaluates the derivative of the polynomial function at a given x value.
  */
 
-let x = 2; // Initial guess
+let x = 4; // Initial guess
 let precision = 0.00001; // Desired precision
 let maxIterations = 100; // Maximum number of iterations
 let iterations = 0; // Current number of iterations
@@ -33,7 +59,7 @@ let nextX; // Next guess
 let coefficients; // Coefficients of the polynomial function
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(1000, 800);
   frameRate(120); // Increase frame rate for smoother animation
   coefficients = new Array(3).fill().map(() => random(-1, 1)); // Generate random coefficients
   // Add mousePressed event to set the initial guess and reset the number of iterations and the animation
@@ -99,8 +125,8 @@ function draw() {
 
   // Animate the movement of the guess
   if (animate) {
-    x = lerp(x, nextX, 0.01); // Slow down the animation
-    if (abs(x - nextX) < 0.01) {
+    x = lerp(x, nextX, 0.07); // Slow down the animation
+    if (abs(x - nextX) < 0.04) {
       animate = false;
     }
   } else {
@@ -109,7 +135,10 @@ function draw() {
     let slope = df(x);
     nextX = x - y / slope;
     animate = true;
-    iterations++;
+    if (maxIterations != iterations){
+        iterations++;
+    }
+
     // Recursive call for next iteration
     if (iterations < maxIterations && abs(x - nextX) >= precision) {
       draw(); // Recursive call to continue the iteration
