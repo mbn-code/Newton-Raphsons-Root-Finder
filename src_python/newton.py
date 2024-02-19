@@ -31,8 +31,7 @@ coefficients = []  # Coefficients of the polynomial function
 
 # Function to generate random coefficients
 def generate_coefficients():
-    return [random.uniform(-0.01, 0.01) for _ in range(4)]  # Adjust the range to be closer to zero
-
+    return [random.uniform(-0.005, 1) for _ in range(3)]  # Adjusted range for coefficients
 
 # Function to evaluate polynomial at x
 def f(x):
@@ -44,7 +43,7 @@ def df(x):
 
 # Function to check if root exists within range
 def has_root():
-    for x_val in range(-200, 201):
+    for x_val in range(-100, 100):
         x = x_val / 100
         y = f(x)
         if abs(y) < PRECISION:
@@ -75,6 +74,13 @@ while running:
             animate = True
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
+                generate_graph()
+                x = 2  # Reset guess
+                iterations = 0
+                animate = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # Check if "New Graph" button is clicked
+            if WIDTH - 150 <= event.pos[0] <= WIDTH - 30 and 20 <= event.pos[1] <= 60:
                 generate_graph()
                 x = 2  # Reset guess
                 iterations = 0
@@ -126,20 +132,23 @@ while running:
     screen.blit(text, (10, HEIGHT // 2 - y * SCALE))
 
     # Draw function formula
-    text = pygame.font.SysFont(None, 24).render(f"f(x) = {' + '.join([f'{a:.2f}x^{i}' for i, a in enumerate(coefficients)])}", True, BLACK)
-    screen.blit(text, (10, 50))
-
-    # Draw derivative formula
-    text = pygame.font.SysFont(None, 24).render(f"f'(x) = {' + '.join([f'{(i+1)*a:.2f}x^{i}' for i, a in enumerate(coefficients[1:])])}", True, BLACK)
+    formula_text = "f(x) = " + " + ".join([f"{a:.3f}x^{i}" for i, a in enumerate(coefficients)])
+    text = pygame.font.SysFont(None, 24).render(formula_text, True, BLACK)
     screen.blit(text, (10, 80))
 
-    # Draw current guess
-    text = pygame.font.SysFont(None, 24).render(f"Current Guess: {x:.3f}", True, BLACK)
+    # Draw derivative formula
+    derivative_text = "f'(x) = " + " + ".join([f"{(i+1)*a:.3f}x^{i}" for i, a in enumerate(coefficients[1:])])
+    text = pygame.font.SysFont(None, 24).render(derivative_text, True, BLACK)
     screen.blit(text, (10, 110))
 
-    # Draw value of function at current guess
-    text = pygame.font.SysFont(None, 24).render(f"f(Current Guess): {y:.3f}", True, BLACK)
+    # Draw value of current guess
+    text = pygame.font.SysFont(None, 24).render(f"Current Guess: {x:.3f}", True, BLACK)
     screen.blit(text, (10, 140))
+
+    # drwa value of current f(x) guess
+    text = pygame.font.SysFont(None, 24).render(f"f(Current Guess): {y:.3f}", True, BLACK)
+    screen.blit(text, (10, 155))
+
 
     # Draw value of derivative at current guess
     text = pygame.font.SysFont(None, 24).render(f"f'(Current Guess): {slope:.3f}", True, BLACK)
