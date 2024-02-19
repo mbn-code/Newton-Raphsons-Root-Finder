@@ -1,3 +1,29 @@
+/**
+ * newton.js
+ * 
+ * This p5.js sketch visualizes Newton's method for finding roots of a function.
+ * Newton's method is an iterative numerical method that starts with an initial guess
+ * and improves that guess with each iteration until it converges to a root of the function.
+ * 
+ * Global Variables:
+ * - x: Initial guess for the root of the function.
+ * - precision: The desired precision for the root.
+ * - maxIterations: The maximum number of iterations to perform.
+ * - iterations: The current number of iterations performed.
+ * - animate: Boolean to control whether to animate the movement of the guess.
+ * - nextX: The next guess for the root.
+ * - coefficients: The coefficients of the polynomial function.
+ * - scale: The scale of the graph.
+ * 
+ * Functions:
+ * - setup(): Initializes the sketch, creates a canvas, sets the frame rate, generates random coefficients for the polynomial function, and adds a mousePressed event.
+ * - draw(): Called continuously by p5.js. It checks if the function has a root, generates a new function if it doesn't, draws the axes, numbers on the axes, the function, and the tangent at the current guess, animates the movement of the guess, and applies Newton's method to find the next guess.
+ * - hasRoot(): Checks if the function has a root by evaluating the function at many points in the interval [-2, 2] and checking if the absolute value of the function at any of these points is less than the desired precision.
+ * - generateGraph(): Generates a new function by creating a new array of random coefficients. It then checks if the new function has a root and generates a new function if it doesn't.
+ * - f(x): Evaluates the polynomial function at a given x value.
+ * - df(x): Evaluates the derivative of the polynomial function at a given x value.
+ */
+
 let x = 2;  // Initial guess
 let precision = 0.00001;  // Desired precision
 let maxIterations = 100;  // Maximum number of iterations
@@ -20,6 +46,9 @@ function setup() {
 
 let scale = 80;  // Scale of the graph
 
+/**
+ * Draws the graph and performs Newton's method animation.
+ */
 function draw() {
     textSize(16);
     fill('black');

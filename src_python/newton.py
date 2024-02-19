@@ -1,6 +1,5 @@
 import pygame
 import random
-import math
 
 # Initialize Pygame
 pygame.init()
@@ -42,6 +41,12 @@ def df(x):
 
 # Function to check if root exists within range
 def has_root():
+    """
+    Checks if the function f(x) has a root within the given range.
+
+    Returns:
+        bool: True if a root is found, False otherwise.
+    """
     for x_val in range(-200, 201):
         x = x_val / 100
         y = f(x)
