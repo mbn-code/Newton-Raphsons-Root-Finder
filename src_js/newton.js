@@ -82,46 +82,51 @@ function draw() {
 
   background(255);
   // Draw axes
-  stroke('black');
+  stroke(0); // Black color
   line(0, height / 2, width, height / 2); // x-axis
   line(width / 2, 0, width / 2, height); // y-axis
   // Draw numbers on axes
   for (let i = -width / 2 / scale; i <= width / 2 / scale; i++) {
+    fill(0); // Black color
     text(i, i * scale + width / 2, height / 2 + 15);
   }
   for (let i = -height / 2 / scale; i <= height / 2 / scale; i++) {
+    fill(0); // Black color
     text(i, width / 2 + 5, -i * scale + height / 2);
   }
-  // Draw function ( polynomial ) 
+  // Draw function (polynomial)
   for (let x = 0; x < width; x++) {
     let y = f((x - width / 2) / scale);
+    stroke(0); // Black color
     point(x, height / 2 - y * scale);
   }
   // Draw tangent
   let y = f(x);
   let slope = df(x);
-  stroke('red');
+  stroke('red'); // Red color
   line(x * scale + width / 2, height / 2 - y * scale, (x - y / slope) * scale + width / 2, height / 2);
-  stroke('black');
+  stroke(0); // Black color
   // Animate the movement of the guess
-  fill('blue');
+  fill('blue'); // Blue color
   ellipse(x * scale + width / 2, height / 2 - f(x) * scale, 10);
-  fill('green');
+  fill('green'); // Green color
   ellipse(nextX * scale + width / 2, height / 2 - f(nextX) * scale, 10);
 
   // draw a line from the end of the red line to the x axes to show where it's going to be
-  stroke('red');
+  stroke('red'); // Red color
   line((x - y / slope) * scale + width / 2, height / 2, (x - y / slope) * scale + width / 2, height / 2 - y * scale);
   // Draw the x-axis
-  stroke('black');
+  stroke(0); // Black color
   line(0, height / 2 - y * scale, (x - y / slope) * scale + width / 2, height / 2 - y * scale);
   // Draw the y-axis
   line((x - y / slope) * scale + width / 2, height / 2 - y * scale, (x - y / slope) * scale + width / 2, height / 2);
 
   // Draw the x value
-  text(x.toFixed(3), (x - y / slope) * scale + width / 2, height / 2 + 15);
+  fill('red'); // Red color
+  text(x.toFixed(5), (x - y / slope) * scale + width / 2, height / 2 + 15);
   // Draw the y value
-  text(y.toFixed(3), 5, (height / 2 - y * scale).toFixed(4));
+  fill('red'); // Red color
+  text(y.toFixed(5), 5, (height / 2 - y * scale).toFixed(4));
 
   // Animate the movement of the guess
   if (animate) {
