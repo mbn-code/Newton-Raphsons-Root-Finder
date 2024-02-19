@@ -44,11 +44,8 @@ function setup() {
     };
 }
 
-let scale = 80;  // Scale of the graph
+let scale = 100;  // Scale of the graph
 
-/**
- * Draws the graph and performs Newton's method animation.
- */
 function draw() {
     textSize(16);
     fill('black');
