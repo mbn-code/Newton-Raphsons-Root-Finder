@@ -157,7 +157,7 @@ function draw() {
 }
 
 function hasRoot() {
-  for (let x = -2; x <= 2; x += 0.01) {
+  for (let x = -5; x <= 5; x += 0.01) {
     let y = f(x);
     if (abs(y) < precision) {
       return true;
