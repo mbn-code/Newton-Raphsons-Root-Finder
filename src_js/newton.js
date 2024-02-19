@@ -34,7 +34,7 @@ let coefficients;  // Coefficients of the polynomial function
 
 function setup() {
     createCanvas(800, 800);
-    frameRate(240);  // Increase frame rate for smoother animation
+    frameRate(120);  // Increase frame rate for smoother animation
     coefficients = new Array(3).fill().map(() => random(-1, 1));  // Generate random coefficients
     // Add mousePressed event to set the initial guess and reset the number of iterations and the animation
     mousePressed = () => {
