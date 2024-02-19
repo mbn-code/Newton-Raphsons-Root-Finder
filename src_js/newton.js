@@ -7,17 +7,22 @@ let nextX;  // Next guess
 let coefficients;  // Coefficients of the polynomial function
 
 function setup() {
-    createCanvas(1000, 1000);
+    createCanvas(800, 800);
     frameRate(240);  // Increase frame rate for smoother animation
     coefficients = new Array(3).fill().map(() => random(-1, 1));  // Generate random coefficients
+    // Add mousePressed event to set the initial guess and reset the number of iterations and the animation
+    mousePressed = () => {
+        x = (mouseX - width / 2) / scale;
+        iterations = 0;
+        animate = false;
+    };
 }
 
-let scale = 100;  // Scale of the graph
+let scale = 80;  // Scale of the graph
 
 function draw() {
     textSize(16);
     fill('black');
-
 
     if (!hasRoot()) {
         generateGraph();
@@ -52,21 +57,19 @@ function draw() {
     fill('green');
     ellipse(nextX * scale + width / 2, height / 2 - f(nextX) * scale, 10);
 
-    // draw a line from the end of the red line to the x axies to show where it's going to be
+    // draw a line from the end of the red line to the x axes to show where it's going to be
     stroke('red');
     line((x - y / slope) * scale + width / 2, height / 2, (x - y / slope) * scale + width / 2, height / 2 - y * scale);
-    // Draw the x axis
+    // Draw the x-axis
     stroke('black');
     line(0, height / 2 - y * scale, (x - y / slope) * scale + width / 2, height / 2 - y * scale);
-    // Draw the y axis
+    // Draw the y-axis
     line((x - y / slope) * scale + width / 2, height / 2 - y * scale, (x - y / slope) * scale + width / 2, height / 2);
    
-
     // Draw the x value
-    text(x.toFixed(5), (x - y / slope) * scale + width / 2, height / 2 + 15);
+    text(x.toFixed(3), (x - y / slope) * scale + width / 2, height / 2 + 15);
     // Draw the y value
-    text(y.toFixed(5), 5, (height / 2 - y * scale).toFixed(4));
-    
+    text(y.toFixed(3), 5, (height / 2 - y * scale).toFixed(4));
 
 
     // Animate the movement of the guess
@@ -98,6 +101,9 @@ function hasRoot() {
 
 function generateGraph() {
     coefficients = new Array(3).fill().map(() => random(-1, 1));
+    if (!hasRoot()) {
+        generateGraph();
+    }
 }
 
 // Function for which to find root
