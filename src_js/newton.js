@@ -130,7 +130,7 @@ function draw() {
 
   // Animate the movement of the guess
   if (animate) {
-    x = lerp(x, nextX, 0.07); // Slow down the animation
+    x = lerp(x, nextX, 0.065); // Slow down the animation
     if (abs(x - nextX) < 0.04) {
       animate = false;
     }
