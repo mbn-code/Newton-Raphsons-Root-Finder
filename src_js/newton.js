@@ -172,7 +172,7 @@ function hasRoot() {
 }
 
 function generateGraph() {
-  coefficients = new Array(3).fill().map(() => random(-1, 1));
+  coefficients = new Array(4).fill().map(() => random(-4, 4));
   if (!hasRoot()) {
     generateGraph();
   }
