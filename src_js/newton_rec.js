@@ -11,9 +11,6 @@ function newtonMethod(f, fDerivative, x0, epsilon) {
   const x1 = x0 - fx / fpx; // ellers laver vi en ny gæt x1
   // Det gør vi ved at trække fx / fpx fra x0 for at få et nyt gæt x1. Dette nye gæt opnås ved at finde x-afsnittet af tangentlinjen.
   
-  console.log("Current guess:", x0);
-  console.log("New guess:", x1);
-  
   return newtonMethod(f, fDerivative, x1, epsilon); // Recursive call
   // Til sidst laver vi et rekursivt kald til newtonMethod med det nye gæt x1, og gentager processen, indtil vi finder en rod.
 }

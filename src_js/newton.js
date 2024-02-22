@@ -177,7 +177,7 @@ function hasRoot() {
 }
 
 function generateGraph() {
-  coefficients = new Array(4).fill().map(() => random(-4, 4));
+  coefficients = new Array(5).fill().map(() => random(-4, 4));
   if (!hasRoot()) {
     generateGraph(); // Recursive call to generate a new function
   }
