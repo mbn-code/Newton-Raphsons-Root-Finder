@@ -1,49 +1,87 @@
-# Newton's Method Visualization
+# Newton-Raphson Method Implementation
 
+This repository contains implementations of the Newton-Raphson method in JavaScript, Python, and Rust. The Newton-Raphson method is a root-finding algorithm that uses iteration to find the roots of a real-valued function.
 
 ![Polynomial of Third Degree](polynomium_of_third_degree.png)
 
-## Overview
+## Table of Contents
 
-`newton.js` is a p5.js sketch that visually demonstrates Newton's method for finding roots of a function. Newton's method is an iterative numerical technique used to approximate the roots of a real-valued function.
+- [Introduction](#introduction)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+- [Running the Code](#running-the-code)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Features
+## Introduction
 
-- **Interactive Visualization**: Users can interact with the sketch by setting the initial guess for the root of the function by clicking on the canvas.
-- **Dynamic Graph**: The sketch dynamically generates and updates the graph of the function and its tangent at the current guess.
-- **Animation**: The movement of the guess towards the root is animated, providing a visual representation of Newton's method.
-- **Precision Control**: Users can specify the desired precision for the root and the maximum number of iterations to perform.
+The Newton-Raphson method is a powerful numerical technique for finding roots of a real-valued function. It uses the idea that a continuous and differentiable function can be approximated by a straight line tangent to it. This project provides implementations of the Newton-Raphson method in JavaScript, Python, and Rust.
 
-## Global Variables
+## Project Structure
 
-- **x**: Initial guess for the root of the function.
-- **precision**: The desired precision for the root.
-- **maxIterations**: The maximum number of iterations to perform.
-- **iterations**: The current number of iterations performed.
-- **animate**: Boolean to control whether to animate the movement of the guess.
-- **nextX**: The next guess for the root.
-- **coefficients**: The coefficients of the polynomial function.
-- **scale**: The scale of the graph.
+The project is structured as follows:
 
-## Functions
+- [`src_js/`](src_js/): Contains JavaScript implementations of the Newton-Raphson method.
+    - [`newton.js`](src_js/newton.js): A simple implementation of the Newton-Raphson method.
+    - [`newton_rec.js`](src_js/newton_rec.js): A recursive implementation of the Newton-Raphson method.
+- [`src_python/`](src_python/): Contains a Python implementation of the Newton-Raphson method.
+    - `newton.py`: A simple implementation of the Newton-Raphson method.
+- [`src_rust/`](src_rust/): Contains a Rust implementation of the Newton-Raphson method.
+    - `newton_rec/`: A recursive implementation of the Newton-Raphson method.
 
-- **setup()**: Initializes the sketch, creates a canvas, sets the frame rate, generates random coefficients for the polynomial function, and adds a `mousePressed` event to set the initial guess.
-- **draw()**: Called continuously by p5.js. It checks if the function has a root, generates a new function if it doesn't, draws the axes, numbers on the axes, the function, the tangent at the current guess, animates the movement of the guess, and applies Newton's method to find the next guess.
-- **hasRoot()**: Checks if the function has a root by evaluating the function at many points in the interval [-2, 2] and checking if the absolute value of the function at any of these points is less than the desired precision.
-- **generateGraph()**: Generates a new function by creating a new array of random coefficients. It then checks if the new function has a root and generates a new function if it doesn't.
-- **f(x)**: Evaluates the polynomial function at a given x value.
-- **df(x)**: Evaluates the derivative of the polynomial function at a given x value.
+## Getting Started
 
-## Usage
+### Prerequisites
 
-Simply open the `index.html` file in a web browser to view and interact with the visualization. Click on the canvas to set the initial guess for the root of the function.
+Before you can run the code in this repository, you need to have the following installed:
 
-## License
+- Node.js and npm: You can download and install them from [here](https://nodejs.org/).
+- Python: You can download and install it from [here](https://www.python.org/downloads/).
+- Rust and Cargo: You can download and install them from [here](https://www.rust-lang.org/tools/install).
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+### Installation
 
-## Acknowledgments
+1. Clone the repository:
 
-This visualization was created using the p5.js library. Special thanks to the p5.js community for their contributions and support.
+```sh
+git clone https://github.com/mbn-code/newton-raphson-root-finder.git
+```
 
-For any questions or feedback, please contact [author's email].
+2. Navigate into the project directory
+
+```sh
+cd newton-raphson-root-finder
+```
+
+3. Insatll the neccessary p5 extensions ( using vscode )
+
+    3.1 windows `ctrl + shift + x` to go to extensions
+    3.1 macOS `command + shift + x` to go to extensions
+
+    3.2 search `live p5` and install the following:
+    ![live-p5](live-p5.png) 
+
+**Running The Visualisation part**
+
+To run the visual part of this demonstration we focus on the `newton.js` file. 
+This file contains the implementation of newton raphson method in p5
+
+To run the simulation use the shortcut `ctrl + shift + p` or `command + shift + p` and type `Open live p5 panel` To get the panel to show, to load a new random polynomium (graph) use the shortcut `ctrl + s` or `command + s` which saves the file, and acts as reloading the live preview and running the script.
+
+**Running the terminal scripts**
+
+To run the javascript code simiple use `node src_js/newton_rec.js`, this is the recursive implementation of the newton raphson method which shows the method in a recursive manner, tryting to find all the roots using for loop.
+
+When running rust you use `cargo run` in the `src_rust/newton_rec` project folder
+
+**Running the python visualisation**
+
+Use `python src_python/newton.py` when running the visualisation. 
+
+**Contact Information**
+
+- Email: malthe@mbn-code.dk
+- Website: [mbn-code.dk](https://mbn-code.dk)
