@@ -72,6 +72,8 @@ This file contains the implementation of newton raphson method in p5
 
 To run the simulation use the shortcut `ctrl + shift + p` or `command + shift + p` and type `Open live p5 panel` To get the panel to show, to load a new random polynomium (graph) use the shortcut `ctrl + s` or `command + s` which saves the file, and acts as reloading the live preview and running the script.
 
+![Visualisation-of-newton-method](demonstration-of-newton-raphson-metode.mp4)
+
 **Running the terminal scripts**
 
 To run the javascript code simiple use `node src_js/newton_rec.js`, this is the recursive implementation of the newton raphson method which shows the method in a recursive manner.
