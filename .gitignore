@@ -24,3 +24,6 @@ build/
 Cargo.lock
 *.rlib
 *.rmeta
+
+# XLSX files
+*.xlsx

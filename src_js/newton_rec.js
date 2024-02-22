@@ -27,7 +27,7 @@ newtonMethod(
 );
 
 
-module.exports = newtonMethod; 
+module.exports = newtonMethod; // export the function for testing
 
   /*
 Newton's method, also known as Newton-Raphson method, is an iterative numerical method used to find the roots of a given function. It is based on the idea of using the tangent line to approximate the root of the function.

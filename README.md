@@ -75,7 +75,7 @@ To run the simulation use the shortcut `ctrl + shift + p` or `command + shift + 
 **Running the terminal scripts**
 
 To run the javascript code simiple use `node src_js/newton_rec.js`, this is the recursive implementation of the newton raphson method which shows the method in a recursive manner.
-The benchmarking script related to the `newton_rec.js` is the `newton_rec_benchmark.test.js` which is a javascript test file to test 4 different functions and benchmark the time it takes to find a root, based on x0 guess. 
+The benchmarking script related to the `newton_rec.js` is the `newton_rec_benchmark.test.js` which is a javascript test file to test `n` amount of different functions (based on how many there are in the array) and benchmark the time it takes to find a root, based on x0 initial guess. 
 
 When running rust you use `cargo run` in the `src_rust/newton_rec` project folder
 
