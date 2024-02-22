@@ -50,18 +50,19 @@ rod inden for det specificerede interval.
  * - df(x): Evaluates the derivative of the polynomial function at a given x value.
  */
 
-let x = 4; // Initial guess
+let x = 2; // Initial guess
 let precision = 0.00001; // Desired precision
 let maxIterations = 100; // Maximum number of iterations
 let iterations = 0; // Current number of iterations
 let animate = false; // Whether to animate the movement of the guess
 let nextX; // Next guess
 let coefficients; // Coefficients of the polynomial function
+let speed = 0.065; // Speed of the animation
 
 function setup() {
   createCanvas(800, 800);
   frameRate(120); // Increase frame rate for smoother animation
-  coefficients = new Array(3).fill().map(() => random(-1, 1)); // Generate random coefficients
+  coefficients = new Array(4).fill().map(() => random(-4, 4));
   // Add mousePressed event to set the initial guess and reset the number of iterations and the animation
   mousePressed = () => {
     x = (mouseX - width / 2) / scale;
@@ -85,6 +86,7 @@ function draw() {
   stroke(0); // Black color
   line(0, height / 2, width, height / 2); // x-axis
   line(width / 2, 0, width / 2, height); // y-axis
+  
   // Draw numbers on axes
   for (let i = -width / 2 / scale; i <= width / 2 / scale; i++) {
     fill(0); // Black color
@@ -94,12 +96,14 @@ function draw() {
     fill(0); // Black color
     text(i, width / 2 + 5, -i * scale + height / 2);
   }
+  
   // Draw function (polynomial)
   for (let x = 0; x < width; x++) {
     let y = f((x - width / 2) / scale);
     stroke(0); // Black color
-    point(x, height / 2 - y * scale);
+    line(x, height / 2 - y * scale, x + 1, height / 2 - f((x + 1 - width / 2) / scale) * scale);
   }
+  
   // Draw tangent
   let y = f(x);
   let slope = df(x);
@@ -130,7 +134,7 @@ function draw() {
 
   // Animate the movement of the guess
   if (animate) {
-    x = lerp(x, nextX, 0.065); // Slow down the animation
+    x = lerp(x, nextX, speed); // Slow down the animation
     if (abs(x - nextX) < 0.04) {
       animate = false;
     }
@@ -162,7 +166,7 @@ function draw() {
 }
 
 function hasRoot() {
-  for (let x = -5; x <= 5; x += 0.01) {
+  for (let x = -4; x <= 4; x += 0.01) {
     let y = f(x);
     if (abs(y) < precision) {
       return true;

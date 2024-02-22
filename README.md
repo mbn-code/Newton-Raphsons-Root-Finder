@@ -1,5 +1,8 @@
 # Newton's Method Visualization
 
+
+![Polynomial of Third Degree](polynomium_of_third_degree.png)
+
 ## Overview
 
 `newton.js` is a p5.js sketch that visually demonstrates Newton's method for finding roots of a function. Newton's method is an iterative numerical technique used to approximate the roots of a real-valued function.
