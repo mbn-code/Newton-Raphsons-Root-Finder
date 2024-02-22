@@ -11,10 +11,7 @@ This repository contains implementations of the Newton-Raphson method in JavaScr
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-- [Running the Code](#running-the-code)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## Introduction
 
