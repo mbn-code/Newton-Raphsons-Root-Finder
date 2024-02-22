@@ -24,11 +24,18 @@ The project is structured as follows:
 - [`src_js/`](src_js/): Contains JavaScript implementations of the Newton-Raphson method.
     - [`newton.js`](src_js/newton.js): A simple implementation of the Newton-Raphson method.
     - [`newton_rec.js`](src_js/newton_rec.js): A recursive implementation of the Newton-Raphson method.
-- [`src_python/`](src_python/): Contains a Python implementation of the Newton-Raphson method.
-    - `newton.py`: A simple implementation of the Newton-Raphson method.
+    - [`newton_rec_benchmark.test.js`](src_js/newton_rec_benchmark.test.js): A benchmark test for the recursive implementation.
+    - [`package.json`](src_js/package.json): Defines the JavaScript project and its dependencies.
+- [`src_python/`](src_python/): Contains Python implementations of the Newton-Raphson method.
+    - [`newton.py`](src_python/newton.py): A simple implementation of the Newton-Raphson method.
+    - [`newton_rec.py`](src_python/newton_rec.py): A recursive implementation of the Newton-Raphson method.
+    - [`newton_rec_benchmark.py`](src_python/newton_rec_benchmark.py): A benchmark test for the recursive implementation.
+    - [`analysis_javascript.py`](src_python/analysis_javascript.py): Analysis script for JavaScript implementation.
+    - [`analysis_python.py`](src_python/analysis_python.py): Analysis script for Python implementation.
 - [`src_rust/`](src_rust/): Contains a Rust implementation of the Newton-Raphson method.
-    - `newton_rec/`: A recursive implementation of the Newton-Raphson method.
-
+    - [`newton_rec/`](src_rust/newton_rec/): A recursive implementation of the Newton-Raphson method.
+        - [`src/main.rs`](src_rust/newton_rec/src/main.rs): The main Rust source file.
+        - [`Cargo.toml`](src_rust/newton_rec/Cargo.toml): Defines the Rust project and its dependencies.
 ## Getting Started
 
 ### Prerequisites
