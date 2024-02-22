@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyz
+*.pyw
+*.egg-info/
+dist/
+build/
+*.egg
+*.egg-info
+
+# Rust
+/target/
+/target/debug
+Cargo.lock
+*.rlib
+*.rmeta

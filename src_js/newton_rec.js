@@ -1,28 +1,32 @@
 function newtonMethod(f, fDerivative, x0, epsilon) {
-  const fx = f(x0);
-  const fpx = fDerivative(x0);
+  const fx = f(x0); // definer vores function ved start punkt x0
+  const fpx = fDerivative(x0); 
   
-  if (Math.abs(fx) < epsilon) {
+  if (Math.abs(fx) < epsilon) { // hvis den absolutte værdi af fx er mindre end epsilon, så har vi fundet en rod
     console.log("Root found:", x0);
-    return x0;
+    return x0; // så retunere vi og printer
   }
   
-  const x1 = x0 - fx / fpx;
+  const x1 = x0 - fx / fpx; // ellers laver vi en ny gæt x1
+  // Det gør vi ved at trække fx / fpx fra x0 for at få et nyt gæt x1. Dette nye gæt opnås ved at finde x-afsnittet af tangentlinjen.
   
   console.log("Current guess:", x0);
   console.log("New guess:", x1);
   
   return newtonMethod(f, fDerivative, x1, epsilon); // Recursive call
+  // Til sidst laver vi et rekursivt kald til newtonMethod med det nye gæt x1, og gentager processen, indtil vi finder en rod.
 }
 
-newtonMethod(
-  x => x**5+3.5*x**4-2.5*x**3-12.5*x**2+1.5*x+9,
-  x => 5*x**4+14*x**3-7.5*x**2-25*x+1.5,
-  2,
-  1e-10
-);
+for (let i = -5; i < 5; i++) {    
+  newtonMethod(
+    x => x**5+3.5*x**4-2.5*x**3-12.5*x**2+1.5*x+9,
+    x => 5*x**4+14*x**3-7.5*x**2-25*x+1.5,
+    i,
+    1e-10
+  );
+}
 
-/*
+  /*
 Newton's method, also known as Newton-Raphson method, is an iterative numerical method used to find the roots of a given function. It is based on the idea of using the tangent line to approximate the root of the function.
 
 The method starts with an initial guess, denoted as x0. It then iteratively refines this guess to get closer to the actual root of the function. Here's how it works:
