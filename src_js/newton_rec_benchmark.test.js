@@ -79,6 +79,6 @@ for (let i = 0; i < functions.length; i++) {
 }
 
 // Write workbook to file
-workbook.xlsx.writeFile('../benchmark_data.xlsx')
+workbook.xlsx.writeFile('../benchmark_data_javascript.xlsx')
   .then(() => console.log('Data written to file'))
   .catch(err => console.error(err));
