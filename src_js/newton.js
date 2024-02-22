@@ -140,6 +140,7 @@ function draw() {
     }
   } else {
     // Apply Newton's method
+    
     let y = f(x);
     let slope = df(x);
     nextX = x - y / slope;

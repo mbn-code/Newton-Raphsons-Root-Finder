@@ -1,3 +1,4 @@
+
 function newtonMethod(f, fDerivative, x0, epsilon) {
   const fx = f(x0); // definer vores function ved start punkt x0
   const fpx = fDerivative(x0); 
@@ -17,14 +18,16 @@ function newtonMethod(f, fDerivative, x0, epsilon) {
   // Til sidst laver vi et rekursivt kald til newtonMethod med det nye gæt x1, og gentager processen, indtil vi finder en rod.
 }
 
-for (let i = -5; i < 5; i++) {    
-  newtonMethod(
-    x => x**5+3.5*x**4-2.5*x**3-12.5*x**2+1.5*x+9,
-    x => 5*x**4+14*x**3-7.5*x**2-25*x+1.5,
-    i,
-    1e-10
-  );
-}
+
+newtonMethod(
+  x => x**5+3.5*x**4-2.5*x**3-12.5*x**2+1.5*x+9,
+  x => 5*x**4+14*x**3-7.5*x**2-25*x+1.5,
+  4,
+  1e-10
+);
+
+
+module.exports = newtonMethod; 
 
   /*
 Newton's method, also known as Newton-Raphson method, is an iterative numerical method used to find the roots of a given function. It is based on the idea of using the tangent line to approximate the root of the function.

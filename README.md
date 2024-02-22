@@ -62,7 +62,8 @@ cd newton-raphson-root-finder
     3.1 macOS `command + shift + x` to go to extensions
 
     3.2 search `live p5` and install the following:
-    ![live-p5](live-p5.png) 
+    
+    ![live-p5](live-p5.PNG) 
 
 **Running The Visualisation part**
 
@@ -73,7 +74,8 @@ To run the simulation use the shortcut `ctrl + shift + p` or `command + shift + 
 
 **Running the terminal scripts**
 
-To run the javascript code simiple use `node src_js/newton_rec.js`, this is the recursive implementation of the newton raphson method which shows the method in a recursive manner, tryting to find all the roots using for loop.
+To run the javascript code simiple use `node src_js/newton_rec.js`, this is the recursive implementation of the newton raphson method which shows the method in a recursive manner.
+The benchmarking script related to the `newton_rec.js` is the `newton_rec_benchmark.test.js` which is a javascript test file to test 4 different functions and benchmark the time it takes to find a root, based on x0 guess. 
 
 When running rust you use `cargo run` in the `src_rust/newton_rec` project folder
 
