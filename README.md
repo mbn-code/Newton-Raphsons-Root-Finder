@@ -36,6 +36,7 @@ The project is structured as follows:
     - [`newton_rec/`](src_rust/newton_rec/): A recursive implementation of the Newton-Raphson method.
         - [`src/main.rs`](src_rust/newton_rec/src/main.rs): The main Rust source file.
         - [`Cargo.toml`](src_rust/newton_rec/Cargo.toml): Defines the Rust project and its dependencies.
+
 ## Getting Started
 
 ### Prerequisites

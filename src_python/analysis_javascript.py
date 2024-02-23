@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Read the Excel file
-df = pd.read_excel('../benchmark_data_javascript.xlsx')
+df = pd.read_excel('../src_python/benchmark_data_javascript.xlsx')
 
 # Calculate the average time for each function and initial guess
 average_times = df.groupby(['Function', 'Initial Guess'])['Time'].mean()

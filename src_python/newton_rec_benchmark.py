@@ -72,5 +72,5 @@ for function in functions:
             worksheet.append([function['name'], x0, elapsed_time, iterations])
 
 # Save workbook to file
-workbook.save('../benchmark_data_python.xlsx')
+workbook.save('../src_python/benchmark_data_python.xlsx')
 print('Data written to file')

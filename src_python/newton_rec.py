@@ -1,6 +1,6 @@
 def newtonMethod(f, fDerivative, x0, epsilon):
     fx = f(x0)  # Definerer vores funktion ved startpunktet x0
-    fpx = fDerivative(x0)
+    fpx = fDerivative(x0) # Definerer vores afledede funktion ved startpunktet x0
 
     if abs(fx) < epsilon:  # Hvis den absolutte værdi af fx er mindre end epsilon, så har vi fundet en rod
         print("Rod fundet:", x0)
@@ -8,9 +8,6 @@ def newtonMethod(f, fDerivative, x0, epsilon):
 
     x1 = x0 - fx / fpx  # Ellers laver vi et nyt gæt x1
     # Dette gør vi ved at trække fx / fpx fra x0 for at få et nyt gæt x1. Dette nye gæt opnås ved at finde x-afsnittet af tangentlinjen.
-
-    print("Nuværende gæt:", x0)
-    print("Nyt gæt:", x1)
 
     return newtonMethod(f, fDerivative, x1, epsilon)  # Rekursivt kald
 
