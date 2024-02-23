@@ -58,7 +58,6 @@ worksheet.columns = [
   { header: 'Function', key: 'function' },
   { header: 'Initial Guess', key: 'initial_guess' }, // New column for initial guess
   { header: 'Time', key: 'time' },
-  { header: 'Iterations', key: 'iterations' }
 ];
 
 for (let i = 0; i < functions.length; i++) {
@@ -73,7 +72,7 @@ for (let i = 0; i < functions.length; i++) {
       const time = diff[0] * 1e3 + diff[1] * 1e-6;
 
       // Add row to worksheet
-      worksheet.addRow({ function: functions[i].name, initial_guess: x0, time: time, iterations: iterations }); // Add initial guess to the row
+      worksheet.addRow({ function: functions[i].name, initial_guess: x0, time: time }); // Add initial guess to the row
     }
   }
 }

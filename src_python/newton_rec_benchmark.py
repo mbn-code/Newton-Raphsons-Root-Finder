@@ -57,20 +57,20 @@ worksheet = workbook.active
 worksheet.title = 'Benchmark Data'
 
 # Add column headers
-worksheet.append(['Function', 'Initial Guess', 'Time', 'Iterations'])
+worksheet.append(['Function', 'Initial Guess', 'Time'])
 
 
 for function in functions:
     for _ in range(numRuns):
         for x0 in initialGuesses: # Loop over initial guesses
             start = time.perf_counter()
-            iterations = newtonMethod(function['f'], function['fDerivative'], x0, epsilon) # Assume newtonMethod returns the number of iterations
+            iterations = newtonMethod(function['f'], function['fDerivative'], x0, epsilon)
             end = time.perf_counter()
             elapsed_time = end - start
 
             # Add row to worksheet
-            worksheet.append([function['name'], x0, elapsed_time, iterations])
+            worksheet.append([function['name'], x0, elapsed_time])
 
 # Save workbook to file
-workbook.save('../src_python/benchmark_data_python.xlsx')
+workbook.save('benchmark_data_python.xlsx')
 print('Data written to file')
