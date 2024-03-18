@@ -1,6 +1,6 @@
+
 import streamlit as st
 import pandas as pd
-import numpy as np
 
 # Title
 st.title('Benchmark Data Analysis')
@@ -46,8 +46,8 @@ max_length = max(len(js_times), len(py_times))
 st.header('Graphical Comparison')
 
 scatter_data = pd.DataFrame({
-    'JavaScript Time': np.log(js_times),
-    'Python Time': np.log(py_times),
+    'JavaScript Time': js_times,
+    'Python Time': py_times,
 }, index=range(1, max_length + 1))
 
 st.line_chart(scatter_data)
